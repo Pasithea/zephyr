@@ -1,0 +1,50 @@
+body {
+  background-color: rgb(183, 200, 187);
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.animation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.main-container {
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .menu {width: 85%}
+  .MuiDrawer-paperAnchorLeft {width: 100%}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .menu {width: 85%}
+  .MuiDrawer-paperAnchorLeft {width: 500px}
+}
+
+/* Medium devices (portrait tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .menu {width: 85%}
+  .MuiDrawer-paperAnchorLeft {width: 50%}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-height: 768px) {
+  .menu {width: 85%}
+  .MuiDrawer-paperAnchorLeft {width: 100%}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .menu {width: 85%}
+  .MuiDrawer-paperAnchorLeft {width: 500px}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+//@media only screen and (min-width: 1200px) {...}
