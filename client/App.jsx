@@ -5,11 +5,9 @@ import './assets/stylesheets/main.scss';
 
 const App = () => {
   return (
-      <div>
     <BreathContextProvider>
         <MainContainer/>
     </BreathContextProvider>
-      </div>
   )
 }
 

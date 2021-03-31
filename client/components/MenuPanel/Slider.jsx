@@ -8,9 +8,9 @@ import { BreathContext } from '../../context/Context';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: 300 + theme.spacing(3) * 2,
-  },
+  // root: {
+  //   width: 300 + theme.spacing(3) * 2,
+  // },
   margin: {
     height: theme.spacing(3),
   },
@@ -79,6 +79,7 @@ export default function BreathSlider(props) {
     }));
   }
 
+  
   return (
     <div className={classes.root}>
       <div className={classes.margin} />

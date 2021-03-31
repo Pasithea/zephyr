@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Pasithea/zephyr#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

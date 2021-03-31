@@ -2,17 +2,6 @@ import './menuPanel.module.scss';
 import React, { useState, useContext, useEffect } from "react";
 import { BreathContext } from '../../context/Context';
 import BreathSlider from './Slider';
-//swipable drawer
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
 
 const MenuPanel = () => {
 
@@ -23,23 +12,26 @@ const MenuPanel = () => {
     e.preventDefault();
 
     const options = {
-      default: {
+      sleep: {
         breathIn: 4,
-        holdBreath1: 0,
-        breathOut: 6,
-        holdBreath2: 0
+        holdBreath1: 4,
+        breathOut: 8,
+        holdBreath2: 0,
+        description: 'Breathing for better sleep: inhale through nose for 4, hold for 4, exhale through nose for 8'
       },
       square: {
         breathIn: 4,
         holdBreath1: 4,
         breathOut: 4,
-        holdBreath2: 4
+        holdBreath2: 4,
+        description: 'Box breathing for calmness: inhale through the nose for 4, hold for 4, out through the nose for 4, hold for 4'
       },
-      pranayama: {
-        breathIn: 7,
+      balanced: {
+        breathIn: 4,
         holdBreath1: 4,
-        breathOut: 8,
-        holdBreath2: 0
+        breathOut: 4,
+        holdBreath2: 4,
+        description: 'Alternate nostril breathing for balancing rest & digest and anxiety: inhale for 4 through your left nostril holding your right nostril closed, hold nostrils closed for 4, exhale right nostril for 4. Inhale right nostril for 4, hold for 4, exhale left nostril for 4'
       },
     };
 
@@ -50,98 +42,25 @@ const MenuPanel = () => {
       holdBreath1: options[target].holdBreath1,
       breathOut: options[target].breathOut,
       holdBreath2: options[target].holdBreath2,
-      selectedOption: target
+      selectedOption: target,
+      description: options[target].description
     }));
   }
   
- // ================//
-
-
-
-const useStyles = makeStyles({
-  list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
-
-export default function SwipeableTemporaryDrawer() {
-  const classes = useStyles();
-  const [state, setState] = React.useState({
-    left: false
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
-
-  return (
-    <div>
-        <React.Fragment key='left'>
-          <Button onClick={toggleDrawer('left', true)}>'open'</Button>
-          <SwipeableDrawer
-            anchor='left'
-            open={state['left']}
-            onClose={toggleDrawer('left', false)}
-            onOpen={toggleDrawer('left', true)}
-          >
-            {list('left')}
-          </SwipeableDrawer>
-        </React.Fragment>
-    </div>
-  );
-}
-// ==========================//
-
   return (
     <div className = "menu">
       <h2>Zephyr</h2>
-      <p>description</p>
-      <button id="default" onClick = {handleClick}>Default</button>
-      <button id="square" onClick = {handleClick}>Square</button>
-      <button id="pranayama" onClick = {handleClick}>Pranayama</button>
+      <p>Welcome to a gentle breeze. Breath with us.</p>
+      <button id="square" onClick={handleClick}>Square</button>
+      <button id="sleep" onClick={handleClick}>Sleep</button>
+      <button id="balanced" onClick={handleClick}>Balanced</button>
+
+      <p>{data.description}</p>
 
       <BreathSlider sliderValue={data.breathIn} defaultValue = {data.breathIn} title={"Breath In:"} label={"breathIn"}/>
       <BreathSlider sliderValue={data.holdBreath1} defaultValue = {data.holdBreath1} title={"Hold Breath:"} label={"holdBreath1"}/>
       <BreathSlider sliderValue={data.breathOut} defaultValue = {data.breathOut} title={"Breath Out:"} label={"breathOut"}/>
       <BreathSlider sliderValue={data.holdBreath2} defaultValue = {data.holdBreath2} title={"Hold Breath:"} label={"holdBreath2"}/>
-
-      <p>{data.selectedOption}</p>
       
     </div>
   )
