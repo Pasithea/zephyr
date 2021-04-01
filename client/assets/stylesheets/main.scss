@@ -3,6 +3,22 @@ body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
+input {
+  display: block;
+}
+
+input[type=text], input[type=email], input[type=password]{
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.login-msg {
+  padding: 0px 5%;
+}
+
+/** CONTAINERS **/
+
 .animation {
   display: flex;
   flex-direction: row;
@@ -13,6 +29,19 @@ body {
   display: flex;
   justify-content: center;
   height: 90vh;
+}
+
+.login, .signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 90%;
+}
+
+.MuiSvgIcon-root	{
+  margin: 10px 5px;
 }
 
 

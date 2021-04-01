@@ -8,7 +8,7 @@ import MenuPanel from '../MenuPanel/menuPanel';
 
 
 const Animation = () => {
-  const [data, setData] = useContext(BreathContext)
+  const { data, setData } = useContext(BreathContext)
 
     console.log('selectedOption', data.selectedOption);
   const style = data.selectedOption;

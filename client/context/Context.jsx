@@ -12,6 +12,21 @@ export const BreathContextProvider = (props) => {
     description: 'Box breathing for balanced calm: inhale through the nose for 4, hold for 4, out through the nose for 4, hold for 4',
   });
 
-  return <BreathContext.Provider value={[data, setData]}>{props.children}</BreathContext.Provider>;
+  const [login, setLogin ] = useState({
+    login_email: '',
+    login_password: '',
+    login_message: '',
+    logged_in: false,
+  });
+
+  const [signup, setSignup] = useState({
+    email: '',
+    password: '',
+    f_name: '',
+    l_name: '',
+    message: '',
+  });
+
+  return <BreathContext.Provider value={{ data, setData, login, setLogin, signup, setSignup }}>{props.children}</BreathContext.Provider>;
 
 }
