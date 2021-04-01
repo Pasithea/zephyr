@@ -37,10 +37,10 @@ const Login = () => {
           console.log('Logged in!')
           // Reset input to empty strings
           setLogin(() => ({
-            ...login,
             login_email: '',
             login_password: '',
             login_message: '',
+            logged_in: true
           }))
           history.push("/");
         } else {

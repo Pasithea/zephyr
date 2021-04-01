@@ -16,6 +16,7 @@ export const BreathContextProvider = (props) => {
     login_email: '',
     login_password: '',
     login_message: '',
+    logged_in: false,
   });
 
   const [signup, setSignup] = useState({
