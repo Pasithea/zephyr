@@ -69,7 +69,7 @@ export default function BreathSlider(props) {
   
   const classes = useStyles();
 
-  const [data, setData] = useContext(BreathContext);
+  const {data, setData} = useContext(BreathContext);
 
 
   function handleChange(event, value) {
