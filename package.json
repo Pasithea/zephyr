@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development concurrently  \"nodemon server/server.js\" \"webpack-dev-server --open --hot\"",
+    "dev": "cross-env NODE_ENV=development concurrently  \"nodemon server/server.js\" \"webpack-dev-server --open --hot\"",
     "build": "webpack"
   },
   "repository": {
@@ -41,6 +41,8 @@
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
+    "eslint": "^7.17.0",
+    "eslint-plugin-react": "^7.21.5",
     "nodemon": "^2.0.7",
     "sass": "^1.32.6",
     "sass-loader": "^7.3.1",
@@ -48,8 +50,6 @@
     "style-loader": "^0.23.0",
     "webpack": "^4.45.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.2",
-    "eslint": "^7.17.0",
-    "eslint-plugin-react": "^7.21.5"
+    "webpack-dev-server": "^3.11.2"
   }
 }

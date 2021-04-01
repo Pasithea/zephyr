@@ -13,7 +13,7 @@
   // --- controls sleep style state { totalTime:16, inhale: totalTime/4, inHold: totalTime/4, exhale: totalTime/8 }
   .sleep {
     border-radius: 50%;
-    background-color: rgba(229, 255, 0, 0.753);
+    background: radial-gradient(green, white);
     width: 150px;
     height: 150px;
     position: absolute;
@@ -38,5 +38,5 @@
     }
    
   }
-  // end sleep ---
-  
+
+// --- end sleep
