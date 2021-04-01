@@ -48,6 +48,7 @@ exports.verifyUser = (req, res, next) => {
         if (results) {
           console.log('logged in!')
           res.locals.login = true;
+          res.locals.fname = data.rows[0].f_name; 
           return next();
         }
         return res.status(404).json({ success: false, message: 'Incorrect password. Please try again.' });
