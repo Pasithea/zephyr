@@ -6,7 +6,7 @@ import BreathSlider from './Slider';
 const MenuPanel = () => {
 
   const [data, setData] = useContext(BreathContext);
-  //const [selectedOption, setSelectedOption] = useState('BREATHE');
+  
   
   function handleClick(e) {
     e.preventDefault();
@@ -47,10 +47,12 @@ const MenuPanel = () => {
     }));
   }
   
+
+
   return (
     <div className = "menu">
       <h2>Zephyr</h2>
-      <p>Welcome to a gentle breeze. Breath with us.</p>
+      <p>Welcome, feel the gentle breeze. Breathe with us.</p>
       <button id="square" onClick={handleClick}>Square</button>
       <button id="sleep" onClick={handleClick}>Sleep</button>
       <button id="balanced" onClick={handleClick}>Balanced</button>

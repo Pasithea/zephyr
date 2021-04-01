@@ -1,0 +1,40 @@
+#container {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  // --- controls balanced style state { totalTime:20, inhale: totalTime/4, inHold: totalTime/4, exhale: totalTime/4, exHold: totalTime/8 }
+  .balanced {
+    border-radius: 50%;
+    background-color: rgba(0, 255, 136, 0.753);
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    opacity: 0.5;
+    animation: scale2 20s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+  }
+  @keyframes scale2 {
+    0% {
+      transform: scale(0.5, 0.5);
+    }
+    20% {
+      transform: scale(2.5, 2.5);
+    }
+    40% {
+      transform: scale(2.5, 2.5);
+    }
+    60%{
+      transform: scale(0.5, 0.5);
+    }
+   100%{
+      transform: scale(0.5, 0.5);
+    }
+  }
+  // end balanced ---
+  
+  
