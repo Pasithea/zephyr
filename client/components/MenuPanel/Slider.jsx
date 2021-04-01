@@ -84,7 +84,7 @@ export default function BreathSlider(props) {
     <div className={classes.root}>
       <div className={classes.margin} />
       <Typography gutterBottom>{title}</Typography>
-      <PrettoSlider valueLabelDisplay="auto" value={sliderValue} aria-label={label} min={0} max={30} defaultValue={defaultValue} onChange={handleChange}/>
+      <PrettoSlider valueLabelDisplay="auto" value={sliderValue} aria-label={label} min={0} max={12} defaultValue={defaultValue} onChange={handleChange}/>
       <div className={classes.margin} />
     </div>
   );

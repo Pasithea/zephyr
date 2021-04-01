@@ -2,6 +2,7 @@ import './MainContainer.module.scss';
 import React, { useState, useContext, useEffect } from "react";
 import MenuPanel from '../MenuPanel/menuPanel';
 import { BreathContext } from '../../context/Context';
+import  Animation from '../Animation/Animation';
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -51,7 +52,7 @@ const MainContainer = () => {
       </React.Fragment>
     <div className= "main-container">
       <div className="animation">
-        <h1>Animation Goes Here</h1>
+        <Animation/>
       </div>
     </div>
     </>
