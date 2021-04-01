@@ -11,7 +11,7 @@
   // --- controls balanced style state { totalTime:16, inhale: totalTime/4, inHold: totalTime/4, exhale: totalTime/4, exHold: totalTime/4 }
   .balanced {
     border-radius: 50%;
-    background-color: rgb(208, 255, 0);
+    background: radial-gradient(#5680ff, rgb(254, 254, 254));
     width: 150px;
     height: 150px;
     position: absolute;
@@ -36,5 +36,4 @@
     }
   }
   // end balanced ---
-  
   

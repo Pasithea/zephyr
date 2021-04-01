@@ -10,19 +10,23 @@ import MenuPanel from '../MenuPanel/menuPanel';
 const Animation = () => {
   const { data, setData } = useContext(BreathContext)
 
-    console.log('selectedOption', data.selectedOption);
+  console.log('selectedOption', data.selectedOption);
   const style = data.selectedOption;
 
-return (
+  return (
     <div>
-      <div id="container">
+      <div className ="graphic">
+        <div className={style}></div>
+        <div className={style}></div>
+        <div className={style}></div>
+        <div className={style}></div>
+        <div className={style}></div>
         <div className={style}></div>
       </div>
     </div>
   );
 }
 export default Animation;
-
 
 
 
