@@ -31,8 +31,15 @@ const MenuPanel = () => {
         holdBreath1: 4,
         breathOut: 4,
         holdBreath2: 4,
-        description: 'Alternate nostril breathing for balancing rest & digest and anxiety: inhale for 4 through your left nostril holding your right nostril closed, hold nostrils closed for 4, exhale right nostril for 4. Inhale right nostril for 4, hold for 4, exhale left nostril for 4'
-      },
+        description: 'Alternate nostril breathing for balancing parasympathetic (rest & digest) and sympathetic (fight & flight): balanced calm breathing: breathe in through your left nostril holding your right nostril closed with ring finger inhale for 4, hold nostrils closed (ring finger and thumb) for 4, exhale right nostril for 4. Inhale right nostril for 4, hold for 4, exhale left nostril for 4.'
+       },
+       power: {
+        breathIn: 8,
+        holdBreath1: 8,
+        breathOut: 8,
+        holdBreath2: 8,
+        description: 'Power breathing exercise to encourage maximum airflow and lung capacity: inhale through nose for 8, hold for 8, exhale through nose for 8, hold for 8'
+      }
     };
 
     const target = e.target.id
@@ -47,13 +54,16 @@ const MenuPanel = () => {
     }));
   }
   
+
+
   return (
     <div className = "menu">
       <h2>Zephyr</h2>
-      <p>Welcome to a gentle breeze. Breath with us.</p>
+      <p>Welcome, feel the gentle breeze. Breathe with us.</p>
       <button id="square" onClick={handleClick}>Square</button>
       <button id="sleep" onClick={handleClick}>Sleep</button>
       <button id="balanced" onClick={handleClick}>Balanced</button>
+      <button id="power" onClick={handleClick}>Power</button>
 
       <p>{data.description}</p>
 

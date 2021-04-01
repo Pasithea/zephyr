@@ -7,6 +7,7 @@ import Login from '../UserPanel/Login';
 import Signup from '../UserPanel/Signup';
 import NavBar from '../MenuPanel/NavBar';
 import SignupSuccess from '../UserPanel/SignupSuccess';
+import  Animation from '../Animation/Animation';
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -62,7 +63,7 @@ const MainContainer = () => {
       </React.Fragment>
     <div className= "main-container">
       <div className="animation">
-        <h1>Animation Goes Here</h1>
+        <Animation/>
       </div>
     </div>
     </>
