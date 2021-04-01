@@ -13,7 +13,7 @@
   // --- controls sleep style state { totalTime:16, inhale: totalTime/4, inHold: totalTime/4, exhale: totalTime/8 }
   .sleep {
     border-radius: 50%;
-    background-color: rgba(229, 255, 0, 0.753);
+    background: radial-gradient(green, white);
     width: 150px;
     height: 150px;
     position: absolute;
@@ -38,5 +38,124 @@
     }
    
   }
+
+// body {
+//   background: #000;
+//   display: flex;
+//   align-items: center;
+//   height: 100vh;
+//   justify-content: center;
+// }
+
+// .watch-face {
+//   height: 325px;
+//   width: 325px;
+//   animation: pulse 8s cubic-bezier(0.5, 0, 0.5, 1) alternate infinite;
+// }
+
+// .balanced {
+//   height: 325px;
+//   width: 325px;
+//   border-radius: 50%;
+//   position: absolute;
+//   mix-blend-mode: screen;
+//   transform: translate(0, 0);
+//   animation: center 6s infinite;
+// }
+
+// .balanced:nth-child(odd) {
+//   background: #03a776;
+// }
+
+// .balanced:nth-child(even) {
+//   background: #4acfd6;
+// }
+
+// .balanced:nth-child(1) {
+//   animation: balanced-1 4s ease alternate infinite;
+// }
+
+// .balanced:nth-child(2) {
+//   animation: balanced-2 4s ease alternate infinite;
+// }
+
+// .balanced:nth-child(3) {
+//   animation: balanced-3 4s ease alternate infinite;
+// }
+
+// .balanced:nth-child(4) {
+//   animation: balanced-4 4s ease alternate infinite;
+// }
+
+// .balanced:nth-child(5) {
+//   animation: balanced-5 4s ease alternate infinite;
+// }
+
+// .balanced:nth-child(6) {
+//   animation: balanced-6 4s ease alternate infinite;
+// }
+
+// @keyframes pulse {
+//   0% {
+//     transform: scale(.15) rotate(180deg);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
+
+// @keyframes balanced-1 {
+//   0% {
+//     transform: translate(0, 0);
+//   }
+//   100% {
+//     transform: translate(-35px, -50px);
+//   }
+// }
+
+// @keyframes balanced-2 {
+//   0% {
+//     transform: translate(0, 0);
+//   }
+//   100% {
+//     transform: translate(35px, 50px);
+//   }
+// }
+
+// @keyframes balanced-3 {
+//   0% {
+//     transform: translate(0, 0);
+//   }
+//   100% {
+//     transform: translate(-60px, 0);
+//   }
+// }
+
+// @keyframes balanced-4 {
+//   0% {
+//     transform: translate(0, 0);
+//   }
+//   100% {
+//     transform: translate(60px, 0);
+//   }
+// }
+
+// @keyframes balanced-5 {
+//   0% {
+//     transform: translate(0, 0);
+//   }
+//   100% {
+//     transform: translate(-35px, 50px);
+//   }
+// }
+
+// @keyframes balanced-6 {
+//   0% {
+//     transform: translate(0, 0);
+//   }
+//   100% {
+//     transform: translate(35px, -50px);
+//   }
+// }
   // end sleep ---
   

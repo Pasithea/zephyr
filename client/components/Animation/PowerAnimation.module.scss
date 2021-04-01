@@ -8,10 +8,10 @@
     position: relative;
   }
   
-  // --- controls balanced style state { totalTime:20, inhale: totalTime/4, inHold: totalTime/4, exhale: totalTime/4, exHold: totalTime/8 }
+  // --- controls power style state { totalTime:32, inhale: totalTime/8, inHold: totalTime/8, exhale: totalTime/8, exHold: totalTime/8 }
   .power {
     border-radius: 50%;
-    background-color: rgba(0, 255, 136, 0.753);
+    background: radial-gradient(red, rgb(248, 171, 82), #ffffff00);
     width: 150px;
     height: 150px;
     position: absolute;
@@ -35,6 +35,6 @@
       transform: scale(0.5, 0.5);
     }
   }
-  // end balanced ---
+  // end power ---
   
   
