@@ -1,7 +1,12 @@
 import './MainContainer.module.scss';
 import React, { useState, useContext, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
 import MenuPanel from '../MenuPanel/menuPanel';
 import { BreathContext } from '../../context/Context';
+import Login from '../UserPanel/Login';
+import Signup from '../UserPanel/Signup';
+import NavBar from '../MenuPanel/NavBar';
+import SignupSuccess from '../UserPanel/SignupSuccess';
 import  Animation from '../Animation/Animation';
 
 import clsx from 'clsx';
@@ -35,8 +40,6 @@ const MainContainer = () => {
     setState({ ...state, [anchor]: open });
   };
 
-
-
   return (
     <>
       <React.Fragment key='left'>
@@ -47,7 +50,15 @@ const MainContainer = () => {
           onClose={toggleDrawer('left', false)}
           onOpen={toggleDrawer('left', true)}
           >
-          <MenuPanel/>
+        <Router>
+          <NavBar/>
+          <Switch>
+            <Route path="/" component={MenuPanel} exact/>
+            <Route path="/login" component={Login} exact/>
+            <Route path="/signup" component={Signup} exact/>
+            <Route path="/success" component={SignupSuccess} exact/>
+          </Switch>
+        </Router>
         </SwipeableDrawer>
       </React.Fragment>
     <div className= "main-container">

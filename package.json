@@ -22,11 +22,15 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "pg": "^8.5.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router": "^4.3.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "ws": "^7.4.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",

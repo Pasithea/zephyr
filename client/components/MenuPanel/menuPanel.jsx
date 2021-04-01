@@ -5,8 +5,8 @@ import BreathSlider from './Slider';
 
 const MenuPanel = () => {
 
-  const [data, setData] = useContext(BreathContext);
-  
+  const {data, setData} = useContext(BreathContext);
+  //const [selectedOption, setSelectedOption] = useState('BREATHE');
   
   function handleClick(e) {
     e.preventDefault();
