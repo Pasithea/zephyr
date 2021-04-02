@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const Signup = () => {
 
-  const { signup, setSignup } = useContext(BreathContext);
+  const { signup, setSignup, login, setLogin } = useContext(BreathContext);
   let history = useHistory();
 
   const handleChange = (e) => {
@@ -38,10 +38,16 @@ const Signup = () => {
           history.push("/success");
 
           setSignup(() => ({
+            ...signup,
             email: '',
             password: '',
-            f_name: '',
             l_name: ''
+          }))
+
+          setLogin(() => ({
+            ...login,
+            logged_in: true,
+            f_name: signup.f_name
           }))
         }        
       })
