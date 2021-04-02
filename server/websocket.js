@@ -1,6 +1,5 @@
 const express = require('express');
 const http = require('http');
-
 const PORT = process.env.PORT || 6969;
 
 const server = express()
