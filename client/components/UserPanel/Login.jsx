@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { BreathContext } from '../../context/Context';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
@@ -8,7 +8,7 @@ const Login = () => {
 
   const { login, setLogin } = useContext(BreathContext);
   let history = useHistory();
-
+  
 
   const handleChange = (e) => {
     setLogin(() => ({
@@ -21,7 +21,6 @@ const Login = () => {
 
     e.preventDefault();
 
-
     const body = { email: login.login_email, password: login.login_password };
 
     fetch('/api/login', {
@@ -32,30 +31,41 @@ const Login = () => {
       body: JSON.stringify(body),
     })
       .then((res) => {
+        // console.log('res:', res);
         if (res.status === 200) {
           // If login was successful 
-          console.log('Logged in!')
-          // Reset input to empty strings
-          setLogin(() => ({
-            login_email: '',
-            login_password: '',
-            login_message: '',
-            logged_in: true
-          }))
-          history.push("/");
-        } else {
-          return res.json();
-        }
+          // sendName();
+          // history.push("/welcome");
+        } 
+        return res.json();
       })
       .then((data) => {
+        // console.log('data:', data);
         if (data && data.message) {
           setLogin(() => ({
             ...login,
             login_message: data.message
           }))
+        } else if(data && data.fname) {          
+          setLogin(() => ({
+            ...login,
+            login_email: '',
+            login_password: '',
+            login_message: '',
+            logged_in: true,
+            f_name: data.fname
+          }))
+
+          history.push("/welcome");
+
         }
       })
       .catch((err) => console.log('Login fetch /api/login ERROR: ', err));
+
+  }
+
+  if (login.logged_in === true) {
+    history.push("/welcome");
   }
 
   return(

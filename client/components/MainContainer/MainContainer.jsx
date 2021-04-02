@@ -1,5 +1,5 @@
 import './MainContainer.module.scss';
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
 import MenuPanel from '../MenuPanel/menuPanel';
 import { BreathContext } from '../../context/Context';
@@ -7,12 +7,12 @@ import Login from '../UserPanel/Login';
 import Signup from '../UserPanel/Signup';
 import NavBar from '../MenuPanel/NavBar';
 import SignupSuccess from '../UserPanel/SignupSuccess';
-import  Animation from '../Animation/Animation';
+import Welcome from '../UserPanel/Welcome';
+import Animation from '../Animation/Animation';
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
@@ -32,6 +32,9 @@ const MainContainer = () => {
     left: false
   });
 
+  const { login, setLogin } = useContext(BreathContext);
+  const ws = useRef(null);
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -39,6 +42,39 @@ const MainContainer = () => {
 
     setState({ ...state, [anchor]: open });
   };
+
+  useEffect(() => {
+
+    ws.current = new WebSocket('ws://zephyr-ws.herokuapp.com/');
+    ws.current.onopen = () => console.log('Connection opened!');
+    ws.current.onclose = () => ws.current = null; 
+
+    setLogin(() => ({
+      ...login,
+      ws_connected: true,
+    }))
+  
+}, []);
+
+
+useEffect(() => {
+
+    ws.current.onmessage = ({ data }) => {
+      const parsedData = JSON.parse(data);
+      // console.log('login:', login)
+      setLogin(() => ({
+        ...login,
+        user_count: parsedData.count - 1,
+      }));
+    };
+
+}, [login])
+
+const sendName = () => {
+  if (wsConnect === true) {
+    ws.current.send(login.f_name)
+  }
+}
 
   return (
     <>
@@ -57,6 +93,7 @@ const MainContainer = () => {
             <Route path="/login" component={Login} exact/>
             <Route path="/signup" component={Signup} exact/>
             <Route path="/success" component={SignupSuccess} exact/>
+            <Route path="/welcome" component={Welcome} exact/>
           </Switch>
         </Router>
         </SwipeableDrawer>

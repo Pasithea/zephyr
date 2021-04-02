@@ -18,6 +18,10 @@ app.get("/login", (req, res) => {
   res.redirect('/');
 });
 
+app.get("/welcome", (req, res) => {
+  res.redirect('/');
+});
+
 app.get("/signup", (req, res) => {
   res.redirect('/');
 });
@@ -25,7 +29,6 @@ app.get("/signup", (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/index.html"));
 });
-
 
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
 
