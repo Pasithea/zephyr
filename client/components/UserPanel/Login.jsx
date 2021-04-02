@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { BreathContext } from '../../context/Context';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
@@ -8,6 +8,7 @@ const Login = () => {
 
   const { login, setLogin } = useContext(BreathContext);
   let history = useHistory();
+  
 
   const handleChange = (e) => {
     setLogin(() => ({
@@ -16,13 +17,13 @@ const Login = () => {
     }))
   }
 
-  const loginClick = async (e) => {
+  const loginClick = (e) => {
 
     e.preventDefault();
 
     const body = { email: login.login_email, password: login.login_password };
 
-    await fetch('/api/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/JSON'
@@ -33,7 +34,8 @@ const Login = () => {
         // console.log('res:', res);
         if (res.status === 200) {
           // If login was successful 
-          history.push("/welcome");
+          // sendName();
+          // history.push("/welcome");
         } 
         return res.json();
       })
@@ -45,14 +47,17 @@ const Login = () => {
             login_message: data.message
           }))
         } else if(data && data.fname) {          
-
           setLogin(() => ({
+            ...login,
             login_email: '',
             login_password: '',
             login_message: '',
             logged_in: true,
             f_name: data.fname
           }))
+
+          history.push("/welcome");
+
         }
       })
       .catch((err) => console.log('Login fetch /api/login ERROR: ', err));

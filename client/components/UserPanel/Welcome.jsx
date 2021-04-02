@@ -6,42 +6,21 @@ import { useHistory } from "react-router-dom";
 const Welcome = () => {
   const { login, setLogin } = useContext(BreathContext);
   
-  const ws = useRef(null);
-  const [wsConnect, setWsConnect ] = useState(false);
-
-  const updateCount = (count) => {
-    console.log('count:', count);
+  let message;
+  
+  if (login.user_count === 0) {
+    message = `Currently riding solo through the breeze.`;
+  } else if (login.user_count === 1) {
+    message = `There is 1 fellow breather in the room.`
+  } else {
+    message = `There are ${login.user_count} fellow breathers in the room.`
   }
-
-  useEffect(() => {
-    // if (ws) {
-    //   ws.onerror = ws.onopen = ws.onclose = null;
-    //   ws.close();
-    // }
-
-    ws.current = new WebSocket('ws://zephyr-ws.herokuapp.com/');
-    ws.current.onopen = () => console.log('Connection opened!');
-    ws.current.onmessage = ({ data }) => {
-      const parsedData = JSON.parse(data);
-      updateCount(parsedData.count);
-    };
-    ws.current.onclose = () => ws = null; 
-    setWsConnect(true);
-    // setTimeout(sendName, 2000)
-  }, [Welcome]);
-
- const sendName = () => {
-  if (wsConnect === true) {
-    console.log('hit sendName function')
-    ws.current.send(login.f_name)
-  }
- }
 
   return (
     <div className="welcome">
       <h2>{`Welcome, ${login.f_name}.`}</h2>
       <p>You have been breathing with us for 90 days.</p>
-      <button onClick={sendName}>Send name</button>
+      <p>{message}</p>
     </div>
   )
 }
