@@ -1,7 +1,5 @@
 # zephyr
 
-## Description
-
 zephyr is a mindfulness application designed with breathing patterns to calm and revitilize. 
 
 The front end interface is built using React and Context API for state management. The back end consists of a RESTful API built in Node/Express and a SQL database using PostgreSQL.
@@ -33,4 +31,6 @@ The front end interface is built using React and Context API for state managemen
 [MIT](https://opensource.org/licenses/mit-license.php)
 
 <br>
+
+
 
